@@ -3,35 +3,82 @@ A dual-mode solution that fetches real-time coin data from CoinGecko API and tra
 
 This Power BI dashboard delivers real-time crypto market intelligence and portfolio analytics by integrating with CoinGecko's API. Designed for both active traders and long-term investors, it transforms raw market data into actionable insights through dynamic visualizations and performance metrics.
 
-## Core Features
+## Power BI Preview
 
-Live Market Data: Tracks 50+ key coins (expandable to 1,500+ via CoinGecko API) with automatic hourly refreshes (prices, volume, market cap)
+<img width="1467" height="808" alt="image" src="https://github.com/user-attachments/assets/2fac233e-401f-40dc-a4eb-c3305f88d0a6" />
 
-Portfolio Mode: Calculates profit/loss, ROI, and asset allocation across wallets/exchanges
 
-Technical Analytics: Moving averages, volatility indicators, and trend analysis
+## 📌 Key Features
 
-Risk Management: Sector diversification heatmaps and price alert thresholds
+### Automated Data Fetching
 
-Benchmarking: Compares holdings against BTC, ETH, or custom baskets
+Fetches real-time data for 50+ (expandable 1500+ with CoinGecko API) cryptocurrencies (price, market cap, volume, dominance).
 
-## Technical Stack
+Tracks Fear & Greed Index and historical trends (BTC/ETH/BNB/SOL/SUI).
 
-Data Source: CoinGecko API (REST) via Power Query
+### Excel Output (crypto_portfolio.xlsx)
 
-Transformations: Custom M-code cleanses/normalizes JSON responses
+📊 Executive Dashboard: Top market metrics (total cap, dominance, sentiment).
 
-DAX Measures: Implements time-weighted returns and moving averages
+📈 Market Overview: Ranked list of 50 coins with price history.
 
-UX: Drill-through pages, mobile-responsive design
+🌍 Global Metrics: Aggregate crypto market data.
 
-## Use Cases
+😰 Fear & Greed Index: 30-day sentiment analysis.
 
-Traders: Monitor live positions with P&L calculations
+🔄 Transactions/Portfolio Sheets: Manual entry for P/L tracking.
 
-Fund Managers: Analyze portfolio concentration risk
+## Power BI Integration
 
-Researchers: Backtest crypto strategies with historical data
+Connect Excel to Power BI for interactive charts:
+
+Portfolio performance
+
+Market dominance trends
+
+Buy/sell timing analysis
+
+
+## ⚙️ How It Works
+
+### 1. Python Script Setup
+
+#### Clone repo
+git clone https://github.com/LuffyMon53/Cryptocurrency-Data-Pipeline-Portfolio-Manager
+
+cd Cryptocurrency-Data-Pipeline-Portfolio-Manager
+
+#### Install dependencies
+pip install pandas requests openpyxl
+
+#### Run script (fetches fresh data)
+Python_Scripts/Data_Fatcher.ipynb
+
+### 2. Excel File Structure
+
+| Sheet Name                  | Description                                                                 | Data Source           | Update Frequency |
+|-----------------------------|-----------------------------------------------------------------------------|-----------------------|------------------|
+| **📊 Executive Dashboard**   | Key market metrics (total cap, dominance, sentiment)                        | CoinGecko API         | Automatic        |
+| **📈 Market Overview**       | Top 50 cryptocurrencies with price, volume, and historical performance      | CoinGecko API         | Automatic        |
+| **🌍 Global Metrics**        | Aggregate market statistics (active coins, total markets)                   | CoinGecko API         | Automatic        |
+| **😰 Fear & Greed Index**    | Daily sentiment scores with classification                                  | Alternative.me        | Automatic        |
+| **📅 BTC History**           | 30-day price, volume, and moving averages for Bitcoin                       | CoinGecko API         | Automatic        |
+| **📅 ETH History**           | 30-day price, volume, and moving averages for Ethereum                      | CoinGecko API         | Automatic        |
+| **📅 BNB History**           | 30-day price, volume, and moving averages for Binance Coin                  | CoinGecko API         | Automatic        |
+| **📅 SOL History**           | 30-day price, volume, and moving averages for Solana                        | CoinGecko API         | Automatic        |
+| **📅 SUI History**           | 30-day price, volume, and moving averages for SUI                           | CoinGecko API         | Automatic        |
+| **🔄 Transactions**          | Manual trade history (date, coin, type, quantity, price)                    | User Input            | Manual           |
+| **💰 Current Portfolio**     | Holdings with auto-calculated P/L (purchase price vs current value)         | User Input            | Manual           |
+
+### 3. Power BI Setup
+
+Generate data: python fetch_crypto_data.py
+
+Open CryptoDashboard.pbix in Power BI
+
+Link to crypto_portfolio.xlsx when prompted
+
+Click Refresh to update visuals
 
 ## 🌐 Dual Deployment Options
 
@@ -122,6 +169,4 @@ classDiagram
     note for Cloud "Best for team collaboration\nand automation"
 ```
 
-## Power BI Preview
 
-<img width="1467" height="808" alt="image" src="https://github.com/user-attachments/assets/2fac233e-401f-40dc-a4eb-c3305f88d0a6" />
